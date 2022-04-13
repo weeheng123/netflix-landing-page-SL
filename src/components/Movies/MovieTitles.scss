@@ -1,0 +1,72 @@
+@import "../App/App.scss";
+
+.category-title {
+  padding: 20px 40px;
+  .movies-container {
+    display: flex;
+  }
+  .movies {
+    position: relative;
+    margin-right: 1rem;
+    flex: 1 0 auto;
+    width: calc(20% - 10px);
+    min-width: calc(20% - 10px);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background 1s ease;
+    overflow: hidden;
+    .overlay {
+      @include generate-gradient($blackblack, 0.75);
+      height: 100%;
+      position: relative;
+      opacity: 0;
+      transition: opacity 0.125s ease;
+      padding: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      .movie {
+        .movie-title {
+          display: block;
+          font-size: 15px;
+          margin-bottom: 1px;
+          opacity: 0;
+          transition: opacity 0.25s ease;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .movie-rating {
+          font-weight: bold;
+          opacity: 0;
+          transition: opacity 0.25s ease 0.125s;
+        }
+        .movie-description {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          opacity: 0;
+          transition: margin 0.25s ease 0.125s, opacity 0.25s ease 0.25s;
+        }
+      }
+    }
+    &:hover {
+      background-size: 150%;
+      .overlay {
+        opacity: 1;
+        .movie-title {
+          opacity: 1;
+        }
+        .movie-rating {
+          opacity: 1;
+        }
+        .movie-description {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

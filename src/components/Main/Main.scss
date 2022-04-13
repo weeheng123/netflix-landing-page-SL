@@ -1,0 +1,48 @@
+@import "../App/App.scss";
+
+.main {
+  min-height: 400px;
+  position: relative;
+  .content {
+    width: 400px;
+    position: relative;
+    justify-content: left;
+    align-items: center;
+    top: 12vw;
+    left: 10vw;
+  }
+  button {
+    font-family: $font;
+    color: white;
+    padding: 6px;
+    background-color: transparent;
+    border-top-style: inset;
+    border-left-style: inset;
+    justify-content: center;
+    border-radius: 1rem;
+    transition: border 0.125s ease, background 0.125s ease;
+    cursor: pointer;
+    &:active {
+      border-bottom-style: none;
+      border-right-style: none;
+    }
+  }
+
+  button.watch {
+    border: 1.5px solid $red;
+    &:hover {
+      background-color: $red;
+    }
+  }
+
+  button.add {
+    border: 1.5px solid rgba($grey, 0.1);
+    &:hover {
+      border-color: $white;
+    }
+  }
+
+  button:first-of-type {
+    margin-right: 0.5rem;
+  }
+}

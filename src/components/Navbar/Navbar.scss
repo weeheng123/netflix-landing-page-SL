@@ -1,0 +1,105 @@
+@import "../App/App.scss";
+
+.header {
+  @include generate-gradient($blackblack, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  .logo {
+    width: 122px;
+    height: 33px;
+    margin-right: 0.6rem;
+    transition: margin 0.125s ease;
+
+    svg {
+      transform: scale(0.4);
+      transform-origin: 0 0;
+
+      path {
+        fill: $red;
+        transition: fill 0.125s ease;
+      }
+    }
+  }
+  .left-div {
+    display: flex;
+    align-items: center;
+  }
+  .right-div {
+    font-family: $font;
+    margin-left: auto;
+    display: block;
+  }
+}
+
+.navigation {
+  nav {
+    ul {
+      display: flex;
+      li {
+        font-family: $font;
+        font-size: 10px;
+        margin: 0 0.3rem;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 0.5rem;
+        &:hover {
+          background-color: $red;
+        }
+      }
+    }
+  }
+}
+
+.search {
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  pointer-events: none;
+  input {
+    width: 20%;
+    background-color: transparent;
+    border: 2px solid rgba($grey, 0.1);
+    border-radius: 1rem;
+    font-size: 12px;
+    padding: 3px 10px;
+    color: $white;
+    transition: border 0.25s ease, width 0.125s ease 0.125s;
+    pointer-events: all;
+
+    &:focus {
+      border: 2px solid $red;
+      width: 30%;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navigation {
+    nav {
+      display: none;
+    }
+  }
+
+  .search {
+    left: 25%;
+    input {
+      width: 30%;
+      &:focus {
+        width: 40%;
+      }
+    }
+  }
+
+  .header {
+    .right-div {
+      display: none;
+    }
+  }
+}
